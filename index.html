@@ -1,61 +1,285 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mutualan & Contact</title>
+  
+  <!-- Font Poppins & Ikon FontAwesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-    <title>Profil Saya</title>
+    body {
+      background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.85)), url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
 
-    <link rel="stylesheet" href="style.css">
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 28px;
+      padding: 32px 24px;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    .img-container {
+      width: 90px;
+      height: 90px;
+      margin: 0 auto 16px;
+    }
+
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #38bdf8;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+    }
+
+    h1 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 20px; /* Jarak langsung ke tombol link */
+    }
+
+    .links-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 18px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    .link-btn i {
+      font-size: 1.2rem;
+      width: 24px;
+    }
+
+    .link-btn.wa:hover { background: #25D366; color: #000; transform: translateY(-2px); }
+    .link-btn.tiktok:hover { background: #00f2fe; color: #000; transform: translateY(-2px); }
+    .link-btn.ig:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366); color: #fff; transform: translateY(-2px); }
+
+    /* Area Form Kirim Pesan Email */
+    .email-box {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 18px;
+      padding: 18px;
+      text-align: left;
+      margin-bottom: 24px;
+    }
+
+    .email-box h2 {
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .form-group {
+      margin-bottom: 10px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.75rem;
+      color: #cbd5e1;
+      margin-bottom: 4px;
+    }
+
+    .form-group input, 
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      padding: 10px;
+      color: #fff;
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    .form-group textarea {
+      resize: none;
+      height: 70px;
+    }
+
+    .btn-send {
+      width: 100%;
+      background: #38bdf8;
+      color: #0f172a;
+      border: none;
+      padding: 10px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-send:hover {
+      background: #7dd3fc;
+    }
+
+    /* Deskripsi di Paling Bawah Kartu *//* DESKRIPSI LENGKAP (BAWAH) - DIBAUT LEBIH BOLD & MODERN */
+.about-me {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 18px;
+  border: 1.5px solid rgba(56, 189, 248, 0.4);
+  text-align: left;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.about-me h3 {
+  font-size: 0.9rem;
+  font-weight: 800; /* Font judul sangat tegas */
+  color: #38bdf8;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.about-me p {
+  font-size: 0.85rem;
+  font-weight: 600; /* Membuat seluruh teks deskripsi tebal (bold) */
+  color: #f1f5f9;
+  line-height: 1.6;
+}
+
+.highlight {
+  font-weight: 800; /* Highlight jauh lebih tebal */
+  color: #38bdf8;   /* Warna cyan berkilau agar menonjol */
+  background: rgba(56, 189, 248, 0.12);
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+/* Efek Warna & Shadow Saat Tombol Telegram Diarahkan (Hover) */
+.link-btn.tele:hover {
+  background: #229ED9;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(34, 158, 217, 0.35);
+}
+
+    
+  </style>
 </head>
-
 <body>
 
-    <div class="container">
-
-        <img src="foto.jpg.png" class="foto" alt="Foto Profil">
-
-        <h1> muhhammad alfatih 👋</h1>
-
-        <p class="deskripsi">
-            Halo! Saya muhammad alfatih , Saya berasal dari langkat sumatera utara, saat ini saya seabagai belajar pemrograman Dart/Flutter , dan jurusan pemrograman mobile
-        </p>
-
-        <div class="card">
-
-            <h2>Hubungi Saya</h2>
-
-            <a class="tombol"
-               href="https://www.instagram.com/pateh__07?igsh=cWtsbWFvNzN3dGtk"
-               target="_blank">
-                📸 Instagram
-            </a>
-
-            <a class="tombol"
-               href="https://wa.me/62083194344625"
-               target="_blank">
-                💬 WhatsApp
-            </a>
-
-           <a class="tombol" 
-           href="https://mail.google.com/mail/?view=cm&fs=1&to=alfatihrianta123@gmail.com" 
-           target="_blank">
-           ✉️️ Gmail
-           </a>
-
-           
-            <a class="tombol"
-               href="https://www.tiktok.com/@pprikitiww000"
-               target="_blank">
-                🎵 TikTok
-            </a>
-
-        </div>
-
-        <p>© 2026-2027 alfatih</p>
-
+  <div class="card">
+    
+    <!-- 1. FOTO PROFIL & NAMA -->
+    <div class="img-container">
+      <img src="foto.jpg" alt="Profile" class="profile-img" onerror="this.src='https://via.placeholder.com/150'">
     </div>
+    <h1>@alfatih</h1>
+
+    <p class="bio-top">✨ HALO BUJANG LAPET NGAPAI ? KEPONYAA SIKEKK AYAAA YAA  </p>
+    <!-- 2. TOMBOL SOSMED / MUTUALAN -->
+    <div class="links-container">
+      <a href="https://wa.me/6283194344625" target="_blank" class="link-btn wa">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>WhatsApp</span>
+        <i class="fa-solid fa-chevron-right" style="font-size:0.7rem"></i>
+      </a>
+    <!-- Tombol Telegram -->
+    <a href="https://t.me/@fatehh_00" target="_blank" class="link-btn tele">
+    <i class="fa-brands fa-telegram"></i>
+    <span>Telegram</span>
+    <i class="fa-solid fa-chevron-right" style="font-size:0.7rem"></i>
+    </a>
+
+      <a href="https://www.tiktok.com/@pprikitiww000" target="_blank" class="link-btn tiktok">
+        <i class="fa-brands fa-tiktok"></i>
+        <span>TikTok</span>
+        <i class="fa-solid fa-chevron-right" style="font-size:0.7rem"></i>
+      </a>
+
+      <a href="https://https://www.instagram.com/pateh__07" target="_blank" class="link-btn ig">
+        <i class="fa-brands fa-instagram"></i>
+        <span>Mutualan IG</span>
+        <i class="fa-solid fa-chevron-right" style="font-size:0.7rem"></i>
+        <a href="https://https://www.instagram.com/prikitiiww___/" target="_blank" class="link-btn ig">
+        <i class="fa-brands fa-instagram"></i>
+        <span> IG ke 2 </span>
+        <i class="fa-solid fa-chevron-right" style="font-size:0.7rem"></i>
+
+      </a>
+    </div>
+
+    <!-- 3. FORM KIRIM PESAN -->
+    <div class="email-box">
+      <h2><i class="fa-solid fa-paper-plane"></i> Kirim Pesan Langsung</h2>
+      <form action="https://formsubmit.co/alfatihrianta123@gmail.com" method="POST">
+        <div class="form-group">
+          <label for="message">Pesan Baru</label>
+          <textarea id="message" name="Pesan" placeholder="Tulis pesan kamu di sini..." required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Pengirim</label>
+          <input type="email" id="email" name="Email_Pengirim" placeholder="gmail kamu @gmail.com" required>
+        </div>
+        <button type="submit" class="btn-send">
+          <i class="fa-solid fa-paper-plane"></i> Kirim Pesan
+        </button>
+      </form>
+    </div>
+
+    <!-- 4. DESKRIPSI TENTANG DIRI SAYA (DI PALING BAWAH) -->
+    <div class="about-me">
+  <h3><i class="fa-solid fa-user"></i> ABOUT ME</h3>
+  <p>
+        Halo! Saya muhammad alfatih bisa di panggil PATEH , hobi saya adalah bermain bola dan bernyanyi dan kesukaan saya adalah KAMUUU . 
+        Saat ini sedang mendalami web development dan perograman aplikasi . Suka membuat proyek aplikasi nyeleneh dan web bermanfaat guyss dan masi tahap awal tunggu aja waktunya (RIBAKK SUDEE)
+      </p>
+    </div>
+
+  </div>
 
 </body>
 </html>
